@@ -1,0 +1,23 @@
+version: "3"
+services:
+
+# https://hub.docker.com/_/mongo
+  mongo-db-pokedex:
+    image: mongo:6.0.6
+    # image: mongo:5
+    container_name: mongo-db-pokedex
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo_db:/data/db
+    environment:
+      #  Este de abajo no se si realmente funciona o no
+      MONGODB_DATABASE: nest-pokemon
+
+      # MONGO_INITDB_DATABASE: nest-pokemon
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+
+
+      
